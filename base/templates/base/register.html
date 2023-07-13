@@ -1,0 +1,23 @@
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<div class="register_form_container">
+    <a class="go_back" href="{% url 'tasks' %}"> Go back</a>
+
+    <div class="register_form_wrapper">
+        <h1>Register</h1>
+            
+        <form class="register_form" action="" method="post">
+            
+            {% csrf_token %}
+            {{ form.as_ul }}
+
+            <input class="register_submit_button" type="submit" value="Register"/>
+        </form>
+    </div>
+
+    <p class="login_question">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+</div>
+
+{% endblock %}

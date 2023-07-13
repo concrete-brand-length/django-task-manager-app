@@ -1,0 +1,84 @@
+.task_list_form {
+    margin: 2rem;
+    display: grid;
+    grid-template-areas: 
+        "search add_task"
+        "task_table task_table";
+    grid-template-rows: 10% 80%;
+    grid-template-columns: 85% 15%;
+    row-gap: 1.5rem;
+}
+
+.search {
+    grid-area: search;
+    display: grid;
+    grid-template-areas: "search_field submit_button";
+    grid-template-columns: 80% 10%;
+    /* grid-template-rows: 2.5rem; */
+    gap: 1rem;
+}
+
+.search_input {
+    grid-area: search_field;
+    border-radius: 10px;
+    height: 2.5rem;
+    padding: 0.4rem;
+}
+
+.submit_search {
+    grid-area: submit_button;
+    border-radius: 10px;
+    height: 2.5rem;
+}
+
+.add_task {
+    grid-area: add_task ;
+    display: grid;
+    justify-content: right;
+    text-decoration: none;
+    height: 2.5rem;
+}
+
+.add_task > button {
+    display: grid;
+    width: 100px;
+    height: 2.5rem;
+    color: white;
+    background-color: #0d6efd;
+    border-radius: 10px;
+    align-content: center;
+}
+
+.add_task > button:hover {
+    background-color: #0b5ed7;
+}
+
+.task_table {
+    height: 500px;
+    grid-area: task_table;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: 10%;
+    overflow-y: auto;
+    overscroll-behavior-y: contain ;       
+}
+
+tbody .task {
+    display: grid; 
+    grid-template-areas: "task edit delete";
+    grid-template-columns: 80% 10% 10%;
+    border-bottom: 1px solid rgba(1, 1, 1, 0.3);
+    padding-bottom: 5px;
+}
+
+.task .task_column {
+    grid-area: task;
+}
+
+.task .task_edit {
+    grid-area: edit;
+}
+
+.task .task_delete {
+    grid-area: delete;
+}

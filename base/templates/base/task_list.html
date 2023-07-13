@@ -1,0 +1,36 @@
+    {% extends 'base/main.html' %}
+
+    {% block content %}
+
+    <div class="task_list_form">
+    
+        <form class="search" method="get">
+            <input class="search_input" type="text" name="search-area" value="{{ search_input }}" placeholder="Enter the task your looking for">
+            <input class="submit_search" type="submit" value="Search">
+        </form>
+
+        <a class="add_task" href="{% url 'task-create' %}"><button type="button">Add Task</button></a>
+
+        <div class="divider"></div>
+
+        <table class="task_table">
+            {% for task in tasks %}
+            <tbody>
+                <tr class="task">
+                    {% if task.complete %}
+                        <td class="task_column"><s>{{ task.title }}</s></td>
+                    {% else %}
+                        <td class="task_column">{{ task.title }}</td>
+                    {% endif %}
+                    <td class="edit_column"><a href="{% url 'task-update' task.id %}">Edit</a></td>
+                    <td class="delete_column"><a href="{% url 'task-delete' task.id %}">Delete</a></td>
+                </tr>
+            </tbody>
+            {% empty %}
+            <h3>No items in list</h3>
+            {% endfor %}
+        </table>
+    </div>
+
+{% endblock %}
+ 

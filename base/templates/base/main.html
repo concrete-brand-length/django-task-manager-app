@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>To Do Items</title>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/task_confirm_delete.css' %}">
+    <link rel="stylesheet" href="{% static 'css/task_form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/task_list.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Todo App</h1>
+        <nav>
+            {% if request.user.is_authenticated %}
+            <a class="login" href="{% url 'logout' %}"><button type="button">Logout</button></a>
+            <div class="user_card">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="9" r="3" stroke="#AAA" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="10" stroke="#AAA" stroke-width="1.5"/>
+                    <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#AAA" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <p class="user">{{ request.user }}</p>
+            </div>
+            {% else %}
+            <a class="logout" href="{% url 'login' %}"><button type="button">Login</button></a>
+            <div class="user_card">
+                <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="9" r="3" stroke="#AAA" stroke-width="1.5"/>
+                    <circle cx="12" cy="12" r="10" stroke="#AAA" stroke-width="1.5"/>
+                    <path d="M17.9691 20C17.81 17.1085 16.9247 15 11.9999 15C7.07521 15 6.18991 17.1085 6.03076 20" stroke="#AAA" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+                <p class="user">Unknown</p>
+            </div>
+            {% endif %}
+        </nav>
+    </header>
+    <aside></aside>
+    <div class="container">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
