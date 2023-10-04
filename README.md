@@ -1,4 +1,4 @@
-# task-manager-app - Developed using Django
+# django-task-manager-app
 
 ## Description
 As part of the learning of the Django framework, I created this task manager app.
